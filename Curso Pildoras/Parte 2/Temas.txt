@@ -1,0 +1,41 @@
+ARRAYS
+
+Son estructuras de datos que contiene una coleccion de valores del mismo tipo.
+
+Sirve para almacenar valores que esten relacionados entre si
+
+Sintaxis:
+
+int matriz [n]
+ 
+n -> cantidad de elementos (FIJOS)
+
+
+ARRAYS BIDIMENSIONALES
+
+Sintaxis: 
+
+int matriz [n][m]  
+
+int matriz [4][5] = {
+    {1,2,3,4,5},
+    {1,2,3,4,5},
+    {1,2,3,4,5},
+    {1,2,3,4,5},
+}
+
+n -> Filas
+
+m -> Columnas
+
+Los ARRAYS pueden ser multidimensionales.
+
+
+
+
+VECTOR 
+
+-Es una clase de la libreria estandar de c++. Crea contenedores para almacenar datos secuenciales
+
+-Los vectores pueden crecer o decrecer de tamaño
+
