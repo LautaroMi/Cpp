@@ -81,7 +81,25 @@ int eliminarInvitado(Invitados arr[],int dl){
     cin >> nombre;
     cout << "Ingrese apellido del invitado: ";
     cin >> apellido;
+    int posicion;
 
+    for (int i = 0; i < dl; i++){
+
+        if(arr[i].apellido == apellido && arr[i].nombre == nombre){
+            posicion = i;
+            dl--;
+            break;
+        }
+    }
+    for (int i = posicion; i < dl; i++)
+    {
+        Invitados aux = arr[i];
+        arr[i] = arr[i+1];
+        arr[i+1] = aux;
+    }
+    
+    return dl;
+    
 }
 
 
@@ -111,16 +129,31 @@ int main(){
 
     //C. Busqueda y Eliminacion por nombre y apellido.
 
-    int opcion;
-    do
-    {
-        cout << "Menu para eliminar un invitado: "<<endl;
-        cout << "1.Eliminar invitado."<<endl;
-        cout << "2.Salir"<<endl; 
-        cout << "Ingrese la opcion que quiera: ";
-        cin >> opcion;
-    } while (opcion != 2);
-    
+    if (dl > 0){
+
+        int opcion;
+        do
+        {
+            cout << "\n\nMenu para eliminar un invitado: "<<endl;
+            cout << "1.Eliminar invitado."<<endl;
+            cout << "2.Salir"<<endl; 
+            cout << "Ingrese la opcion que quiera: ";
+            cin >> opcion;
+            switch (opcion){
+            case 1:
+                dl = eliminarInvitado(arr,dl);
+                break;
+            case 2:
+                cout << "\nNo se eliminara ningun invitado."<<endl;
+                break;
+            default:
+                cout << "\nIngrese una opcion valida.";
+                break;
+            };
+        } while (opcion != 2);
+        
+        mostrarInvitados(arr, dl);
+    }
 
     
 
