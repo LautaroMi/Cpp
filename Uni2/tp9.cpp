@@ -19,8 +19,8 @@ struct Alumnos{
         int primerTrimestre = 0;
         int segundoTrimestre = 0;
         int tercerTrimestre = 0;
-    } nota;
-    
+    };
+    Notas nota;
 };
 
 int cargarAlumnos(Alumnos arr[],int dl, int DF){

@@ -55,19 +55,13 @@ int cargarEstudiante(Estudiantes arr[], int dl,const int DF){
     }
     return dl;
 };
-int calcularPromedio(Estudiantes arr[],int dl){
-    int promedio=0;
-    int i=0;
-    for (int i ; i < dl; i++){
-        promedio += arr[i].nota;
-    }
-    promedio = promedio / i;
-    return promedio;
-}
+
+
+
 void mostrarEstudiante(Estudiantes arr[],int dl,int inasistencias,int promedio){
     for (int i = 0; i < dl; i++){
         if(arr[i].inasistencias > inasistencias ){
-            cout <<"Alumno " << i+1 << endl;
+            cout <<"\nAlumno " << i+1 << endl;
             cout <<"Nombre: " << arr[i].nombre<< endl;
             cout <<"Apellido: " << arr[i].apellido<< endl;
             cout <<"Legajo: " << arr[i].legajo<< endl;
@@ -75,11 +69,23 @@ void mostrarEstudiante(Estudiantes arr[],int dl,int inasistencias,int promedio){
             cout <<"Nota: " << arr[i].nota<< endl;
         }
         if (arr[i].nota >= promedio){
-            cout << "\n.Legajo: "<< arr[i].legajo << endl;
+            cout <<"\nAlumno " << i+1 << endl;
+            cout << "Legajo: "<< arr[i].legajo << endl;
         }
         
     }
     
+}
+
+int notaPromedio(Estudiantes arr[],int dl, int promedio){
+    int suma=0;
+    for (int i = 0; i < dl; i++){
+        suma += arr[i].nota;
+    }
+    promedio = suma / dl;
+    
+    return promedio;
+
 }
 
 
@@ -92,13 +98,12 @@ int main(){
     Estudiantes arr[DF];
 
     dl = cargarEstudiante(arr,dl,DF);
+    cout << "\n\nAlumnos con mas de 5 inasistencias:"<<endl;
+    mostrarEstudiante(arr,dl,5,11);
+    promedio = notaPromedio(arr,dl,promedio);
+    cout << "\n\nAlumnos con promedio igual o superior a [" <<promedio << "]." <<endl;
+    mostrarEstudiante(arr,dl,99,promedio);
 
-    cout << "<\n\nAlumnos con mas de 5 inasistencias: "<<endl;
-    mostrarEstudiante(arr, dl, 5 , 11);
-
-    promedio = calcularPromedio(arr, dl);
-    cout << "\nSe mostraran los alumnos con nota superior al promedio. ";
-    mostrarEstudiante(arr, dl, 10000,promedio);
-
+    
 
 }
